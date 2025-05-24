@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/swarm/static/css/main.f855e6bc.css",
-    "main.js": "/swarm/static/js/main.2c7a12bb.js",
+    "main.js": "/swarm/static/js/main.ea73dda4.js",
     "static/js/453.171d879d.chunk.js": "/swarm/static/js/453.171d879d.chunk.js",
     "index.html": "/swarm/index.html",
     "main.f855e6bc.css.map": "/swarm/static/css/main.f855e6bc.css.map",
-    "main.2c7a12bb.js.map": "/swarm/static/js/main.2c7a12bb.js.map",
+    "main.ea73dda4.js.map": "/swarm/static/js/main.ea73dda4.js.map",
     "453.171d879d.chunk.js.map": "/swarm/static/js/453.171d879d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.2c7a12bb.js"
+    "static/js/main.ea73dda4.js"
   ]
 }
