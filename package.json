@@ -1,5 +1,6 @@
 {
   "name": "swarm",
+  "homepage": "https://glenrage.github.io/swarm",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
