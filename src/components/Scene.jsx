@@ -1,7 +1,6 @@
 import { Drone } from './Drone';
 import { Ground } from './Ground';
 import { OrbitControls, Sky, Stars } from '@react-three/drei';
-import * as THREE from 'three';
 
 export function Scene({
   drones,
@@ -42,7 +41,7 @@ export function Scene({
       />
 
       <directionalLight
-        position={[10, 15, 10]} // Try different positions, e.g., [0, 10, 10], [-10, 10, 0]
+        position={[10, 15, 10]}
         intensity={2.5}
         castShadow
         shadow-mapSize-width={2048}
@@ -54,7 +53,6 @@ export function Scene({
         shadow-camera-bottom={-20}
       />
 
-      {/* Pass the click handler to the group containing the ground */}
       <group onClick={handleGroundClick}>
         <Ground />
       </group>

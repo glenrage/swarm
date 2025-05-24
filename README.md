@@ -21,8 +21,7 @@ This project is a React-based web application demonstrating a simplified 3D user
 
 ## Technologies Used
 
-- **React:** Core JavaScript library for building user interfaces.
-- **React Three Fiber (R3F):** A React renderer for Three.js, allowing declarative creation of 3D scenes with React components.
+- **React Three Fiber (R3F):** Declaritive 3D scenes
 - **Drei:** A collection of useful helpers and abstractions for React Three Fiber (e.g., `OrbitControls`, `Html`, `Environment`, shapes).
 
 ## Running Locally (Optional)

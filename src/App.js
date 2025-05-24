@@ -84,7 +84,7 @@ function App() {
       />
       <Canvas shadows camera={{ position: [0, 8, 18], fov: 55 }}>
         <Suspense fallback={null}>
-          <Environment preset='city' />
+          <Environment preset='sunset' />
           <Scene
             drones={drones}
             selectedDroneId={selectedDroneId}
