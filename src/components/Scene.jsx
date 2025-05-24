@@ -1,5 +1,4 @@
 import { Drone } from './Drone';
-import { DeconflictionZone } from './DeconflictionZone';
 import { Ground } from './Ground';
 import { OrbitControls, Sky, Stars } from '@react-three/drei';
 import * as THREE from 'three';
@@ -71,12 +70,6 @@ export function Scene({
           onTargetReached={onDroneTargetReached}
         />
       ))}
-
-      <DeconflictionZone
-        position={new THREE.Vector3(0, 1.5, 0)}
-        radius={3}
-        height={3}
-      />
 
       <OrbitControls
         makeDefault
