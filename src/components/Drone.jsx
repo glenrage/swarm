@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import * as THREE from 'three';
 import { DroneModel } from './DroneModel';
 
-const DRONE_SPEED = 2; // Units per second
+const DRONE_SPEED = 3; // Units per second
 
 export function Drone({
   droneData,
@@ -82,7 +82,7 @@ export function Drone({
         e.stopPropagation();
         setIsHovered(true);
       }}
-      onPointerOut={(e) => setIsHovered(false)}>
+      onPointerOut={() => setIsHovered(false)}>
       <DroneModel
         scale={isSelected ? 0.6 : 0.5}
         rotation={[0, Math.PI / 2, 0]}
