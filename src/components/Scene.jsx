@@ -4,6 +4,7 @@ import { DeconflictionZone } from './DeconflictionZone';
 import { Ground } from './Ground';
 import { OrbitControls, Sky, Stars } from '@react-three/drei';
 import * as THREE from 'three';
+import { Environment } from '@react-three/drei';
 
 export function Scene({
   drones,
@@ -36,10 +37,16 @@ export function Scene({
         fade
         speed={1}
       />
-      <ambientLight intensity={0.7} />
+      <ambientLight intensity={1.5} />
+      <hemisphereLight
+        skyColor={0x87ceeb}
+        groundColor={0x402810}
+        intensity={1}
+      />
+
       <directionalLight
-        position={[10, 15, 10]}
-        intensity={1.8}
+        position={[10, 15, 10]} // Try different positions, e.g., [0, 10, 10], [-10, 10, 0]
+        intensity={2.5}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}

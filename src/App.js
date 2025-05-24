@@ -1,9 +1,10 @@
-import React, { Suspense, useState, useCallback } from 'react';
+import { Suspense, useState, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Scene } from './components/Scene';
 import { UIPanel } from './components/UIPanel';
 import * as THREE from 'three';
-import './App.css'; // Assuming you have this for basic body styling
+import './App.css';
+import { Environment } from '@react-three/drei';
 
 const initialDronesSetup = [
   {
@@ -72,8 +73,6 @@ function App() {
     );
   }, []);
 
-  console.log('PUBLIC_URL:', process.env.PUBLIC_URL);
-
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#282c34' }}>
       <UIPanel
@@ -85,6 +84,7 @@ function App() {
       />
       <Canvas shadows camera={{ position: [0, 8, 18], fov: 55 }}>
         <Suspense fallback={null}>
+          <Environment preset='city' />
           <Scene
             drones={drones}
             selectedDroneId={selectedDroneId}
