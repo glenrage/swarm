@@ -105,11 +105,11 @@ export function Drone({
         <Html distanceFactor={10} position={[0, 1.2, 0]}>
           <div
             style={{
-              padding: '3px 6px',
-              background: 'rgba(0,0,0,0.75)',
+              padding: '10px 15px',
+              background: 'rgba(0,0,0,0.8)',
               color: 'white',
-              borderRadius: '4px',
-              fontSize: '11px',
+              borderRadius: '5px',
+              fontSize: '16px',
               whiteSpace: 'nowrap',
               transform: 'translate(-50%, -50%)',
             }}>
