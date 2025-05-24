@@ -4,13 +4,12 @@ Command: npx gltfjsx@6.5.3 public/drone.glb -o src/components/DroneModel.jsx -t 
 Files: public/drone.glb [490.3KB] > /Users/pham/Desktop/projects/swarm/src/components/drone-transformed.glb [36.57KB] (93%)
 */
 
-import * as THREE from 'three';
-import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { GLTF } from 'three-stdlib';
+
+const modelPath = `${process.env.PUBLIC_URL || ''}/drone-transformed.glb`;
 
 export function DroneModel(props) {
-  const { nodes, materials } = useGLTF('/drone-transformed.glb');
+  const { nodes, materials } = useGLTF(modelPath);
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.648, 0]} scale={[1, 1, 1.987]}>
@@ -37,4 +36,4 @@ export function DroneModel(props) {
   );
 }
 
-useGLTF.preload('/drone-transformed.glb');
+useGLTF.preload(modelPath);

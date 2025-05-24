@@ -1,10 +1,8 @@
-import React from 'react';
 import { Drone } from './Drone';
 import { DeconflictionZone } from './DeconflictionZone';
 import { Ground } from './Ground';
 import { OrbitControls, Sky, Stars } from '@react-three/drei';
 import * as THREE from 'three';
-import { Environment } from '@react-three/drei';
 
 export function Scene({
   drones,
