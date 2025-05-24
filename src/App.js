@@ -1,23 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useState, useCallback } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Scene } from './components/Scene';
+import { UIPanel } from './components/UIPanel';
+import * as THREE from 'three';
+import './App.css'; // Assuming you have this for basic body styling
+
+const initialDronesSetup = [
+  {
+    id: 'Alpha-01',
+    position: new THREE.Vector3(-6, 1, 2),
+    targetPosition: null,
+    status: 'idle',
+  },
+  {
+    id: 'Bravo-07',
+    position: new THREE.Vector3(0, 1, -6),
+    targetPosition: null,
+    status: 'idle',
+  },
+  {
+    id: 'Charlie-03',
+    position: new THREE.Vector3(6, 1, 2),
+    targetPosition: null,
+    status: 'idle',
+  },
+  {
+    id: 'Delta-05',
+    position: new THREE.Vector3(3, 1, 5),
+    targetPosition: null,
+    status: 'idle',
+  },
+];
 
 function App() {
+  const [drones, setDrones] = useState(initialDronesSetup);
+  const [selectedDroneId, setSelectedDroneId] = useState(null);
+
+  const handleSelectDrone = useCallback((id) => {
+    setSelectedDroneId(id);
+  }, []);
+
+  const handleDronePositionUpdate = useCallback((id, newPosition) => {
+    setDrones((prevDrones) =>
+      prevDrones.map((d) =>
+        d.id === id ? { ...d, position: newPosition.clone() } : d
+      )
+    );
+  }, []);
+
+  const handleDroneStatusChange = useCallback((id, newStatus) => {
+    setDrones((prevDrones) =>
+      prevDrones.map((d) => (d.id === id ? { ...d, status: newStatus } : d))
+    );
+  }, []);
+
+  const handleDroneTargetReached = useCallback((id) => {
+    setDrones((prevDrones) =>
+      prevDrones.map((d) =>
+        d.id === id ? { ...d, targetPosition: null, status: 'idle' } : d
+      )
+    );
+  }, []);
+
+  const handleSetDroneTargetPosition = useCallback((id, targetPosition) => {
+    setDrones((prevDrones) =>
+      prevDrones.map((d) =>
+        d.id === id
+          ? { ...d, targetPosition: targetPosition.clone(), status: 'moving' }
+          : d
+      )
+    );
+  }, []);
+
+  console.log('PUBLIC_URL:', process.env.PUBLIC_URL);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: '100vw', height: '100vh', background: '#282c34' }}>
+      <UIPanel
+        drones={drones}
+        selectedDroneId={selectedDroneId}
+        onSelectDrone={handleSelectDrone}
+        onSetDroneTargetPosition={handleSetDroneTargetPosition}
+        onSetDroneStatus={handleDroneStatusChange}
+      />
+      <Canvas shadows camera={{ position: [0, 8, 18], fov: 55 }}>
+        <Suspense fallback={null}>
+          <Scene
+            drones={drones}
+            selectedDroneId={selectedDroneId}
+            onSelectDrone={handleSelectDrone}
+            onDronePositionUpdate={handleDronePositionUpdate}
+            onDroneStatusChange={handleDroneStatusChange}
+            onDroneTargetReached={handleDroneTargetReached}
+            onSetDroneTargetPosition={handleSetDroneTargetPosition}
+          />
+        </Suspense>
+      </Canvas>
     </div>
   );
 }
