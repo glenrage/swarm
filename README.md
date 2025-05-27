@@ -33,8 +33,8 @@ While the live demo is recommended, if you wish to run the project locally:
     - npm or yarn
 2.  **Clone the repository:**
     ```bash
-    git clone [URL_OF_YOUR_REPO]
-    cd [repository-name]
+    git clone https://github.com/glenrage/swarm.git
+    cd swarm
     ```
 3.  **Install dependencies:**
     ```bash
