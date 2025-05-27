@@ -1,6 +1,6 @@
-# 3D Drone Swarm Control UI - Demo
+# 3D Drone Control UI - Demo
 
-This project is a React-based web application demonstrating a simplified 3D user interface for visualizing and interacting with a swarm of drones. It showcases the use of 3D graphics within a web environment, focusing on drone representation, selection, and basic movement commands.
+This project is a React-based web application demonstrating a simplified 3D user interface for visualizing and interacting with drones. It showcases the use of 3D graphics within a web environment, focusing on drone representation, selection, and basic movement commands.
 
 **Live Demo URL:** [https://glenrage.github.io/swarm/](https://glenrage.github.io/swarm/)
 
